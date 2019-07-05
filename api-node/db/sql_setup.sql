@@ -1,4 +1,5 @@
-CREATE DATABASE myapp CHARACTER SET utf8 COLLATE utf8_bin;
-CREATE USER 'myapp'@'%' IDENTIFIED BY 'myapp';
-GRANT ALL PRIVILEGES on myapp.* to 'myapp'@'%';
-FLUSH PRIVILEGES;
+CREATE USER myapp WITH PASSWORD 'myapp' CREATEDB;
+CREATE DATABASE myapp OWNER myapp;
+GRANT ALL PRIVILEGES on DATABASE myapp to myapp;
+-- connect to noncampaign database
+CREATE SCHEMA IF NOT EXISTS myapp AUTHORIZATION myapp;
