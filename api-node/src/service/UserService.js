@@ -130,7 +130,7 @@ class UserService extends ModelService {
     if (transaction) {
       options.transaction = transaction;
     }
-    let user = this.model.findOne(options);
+    let user = await this.model.findOne(options);
     if (!user) {
       throw new ValidationError(message.getAndReplace(
         'INVALID_USERNAME_PASSWORD',

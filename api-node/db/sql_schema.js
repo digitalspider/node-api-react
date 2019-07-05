@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS ${schema}.user (
     phone                varchar(18) null,
     mobile               varchar(18) null,
     last_visit           timestamp not null default CURRENT_DATE,
+    token_expiry_date    date not null default CURRENT_DATE + INTERVAL '7 days',
     total_visits         int not null default 0,
     created_by           int null,
     created_at           timestamp not null default CURRENT_DATE,

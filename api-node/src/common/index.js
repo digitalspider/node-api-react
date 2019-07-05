@@ -103,6 +103,8 @@ module.exports = {
         'You are not permissed to delete yourself.',
       INVALID_ENABLE_SELF_DENIED:
         'You are not permissed to enable yourself.',
+      INVALID_USERNAME_PASSWORD:
+        'Invalid username or password for username: {placeholder}',
       ATTACHMENT_MISSING: 'Item has no document attached',
       PARAMETER_REQUIRED:
         'The parameter {placeholder} is required.',
