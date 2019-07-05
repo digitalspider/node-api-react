@@ -2,24 +2,22 @@
 require('dotenv').config();
 
 const {articleService} = require('../../src/service/ArticleService');
-const {roleService} = require('../../src/service/RoleService');
+const {userService} = require('../../src/service/UserService');
 
 describe('ArticleService.getDisplayName', () => {
-    it('expect title if username is undefined', () => {
-        const article = {recuid: 1, title: 'basic'};
-        const currentUser = {};
+    let article;
+    let currentUser;
+    beforeEach(() => {
+      currentUser = {};
+      article = {recuid: 1, title: 'basic'};
+      userService.isAdmin = jest.fn(() => false);
+    });
+    it('expect title if user is not sysAdmin', () => {
         const result = articleService.getDisplayName(article, currentUser);
         expect(result).toEqual('basic');
     });
-    it('expect title if username is not sysAdmin', () => {
-        const article = {recuid: 1, title: 'basic'};
-        const currentUser = {username: 'test'};
-        const result = articleService.getDisplayName(article, currentUser);
-        expect(result).toEqual('basic');
-    });
-    it('expect recuid in title if username is sysAdmin', () => {
-        const article = {recuid: 1, title: 'basic'};
-        const currentUser = {username: 'admin'};
+    it('expect recuid in title if user is sysAdmin', () => {
+        userService.isAdmin = jest.fn(() => true);
         const result = articleService.getDisplayName(article, currentUser);
         expect(result).toEqual('1 - basic');
     });

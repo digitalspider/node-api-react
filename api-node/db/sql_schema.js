@@ -48,5 +48,5 @@ CREATE TABLE ${schema}.user_role (
   CONSTRAINT FK_user_role_user_id FOREIGN KEY (user_id) REFERENCES ${schema}.user (recuid),
   CONSTRAINT FK_user_role_role_id FOREIGN KEY (role_id) REFERENCES ${schema}.role (recuid)
 );
-`
+`;
 };

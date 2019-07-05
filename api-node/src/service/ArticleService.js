@@ -18,7 +18,6 @@ const ArticleStatusService = require('./ArticleStatusService');
 const {articleStatusService} = require('./ArticleStatusService');
 const {articleCommentService} = require('./ArticleCommentService');
 const {userService} = require('./UserService');
-const {roleService} = require('./RoleService');
 const {articleDocTypeService} = require('./ArticleDocTypeService');
 const {emailService} = require('./EmailService');
 const {documentService} = require('./DocumentService');
@@ -432,7 +431,7 @@ class ArticleService extends ModelService {
    */
   getDisplayName(article, currentUser) {
     let displayName = article.title;
-    if (roleService.isAdmin(currentUser)) {
+    if (userService.isAdmin(currentUser)) {
       displayName = article.recuid + ' - ' + article.title;
     }
     return displayName;
@@ -466,3 +465,4 @@ class ArticleService extends ModelService {
 }
 
 module.exports = ArticleService;
+module.exports.articleService = new ArticleService();

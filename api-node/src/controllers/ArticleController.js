@@ -1,15 +1,11 @@
 // Utils
 const {ValidationError} = require('../libs/APIError');
 
-const ArticleService = require('./../service/ArticleService');
-const AuditLogService = require('../service/AuditLogService');
-const CommentService = require('./../service/ArticleCommentService');
+const {articleService} = require('../service/ArticleService');
+const {auditLogService} = require('../service/AuditLogService');
+const {articleCommentService} = require('../service/ArticleCommentService');
 const message = require('../libs/message');
 const common = require('../common');
-
-const articleService = new ArticleService();
-const auditLogService = new AuditLogService();
-const commentService = new CommentService();
 
 /** Article controller */
 class Article {
@@ -68,7 +64,7 @@ class Article {
    */
   getComments(req, res, next) {
     let options = {where: {articleId: req.params.id}};
-    commentService.all(req.requestId, options).then((data) => {
+    articleCommentService.all(req.requestId, options).then((data) => {
       res.status(common.statusCode['SUCCESS']).json({
         message: message.get('GET_ALL_RECORDS'),
         data: data,
@@ -96,12 +92,12 @@ class Article {
         });
         throw new ValidationError(message.get('RECORD_NOT_FOUND'));
       }
-      commentService.create(
+      articleCommentService.create(
         req.requestId,
         req.body,
         req.params.id
       ).then((data) => {
-        commentService.sendNotification(articleRecord, data);
+        articleCommentService.sendNotification(articleRecord, data);
         res.status(common.statusCode['SUCCESS']).json({
           message: message.get('POST_RECORD'),
           data: data,

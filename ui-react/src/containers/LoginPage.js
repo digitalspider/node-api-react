@@ -27,7 +27,7 @@ class LoginPage extends Component {
 
   handleLogin = async () => {
     let data = this.state.auth;
-    let response = await Api.post(BASE_URL+'/user/login', data);
+    let response = await Api.post(BASE_URL+'/api/v1/auth/login', data);
     console.log('resp='+JSON.stringify(response));
     if (response.status===200) {
       console.log('New token='+response.data.token);

@@ -16,5 +16,5 @@ INSERT INTO myapp.user (id,username,password,email,created_at,updated_at) VALUES
 (1,'admin','admin','admin@admin.com',now(),now());
 
 INSERT INTO myapp.userroles (user_id,role_id) VALUES (1,1);
-`
+`;
 };
