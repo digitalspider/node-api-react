@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "google",
+    "react-app"
+  ],
+  "rules": {
+    "require-jsdoc": 0,
+    "no-invalid-this": 0,
+    "radix" : 0,
+    "max-len": [2, {
+      "ignoreRegExpLiterals": true
+    }],
+    "no-fallthrough": "off"
+  }
+}

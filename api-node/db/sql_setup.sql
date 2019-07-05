@@ -1,0 +1,4 @@
+CREATE DATABASE myapp CHARACTER SET utf8 COLLATE utf8_bin;
+CREATE USER 'myapp'@'%' IDENTIFIED BY 'myapp';
+GRANT ALL PRIVILEGES on myapp.* to 'myapp'@'%';
+FLUSH PRIVILEGES;

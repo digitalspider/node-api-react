@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Emailer</title>
+  <style>
+    /* ------------------------------------- GLOBAL RESETS ------------------------------------- */
+    img {
+      border: none;
+      -ms-interpolation-mode: bicubic;
+      max-width: 100%;
+    }
+
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.4rem;
+      color: #404040;
+      margin: 0;
+      padding: 0;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    table {
+      border-collapse: separate;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      width: 100%;
+    }
+
+    table td {
+      font-family: sans-serif;
+      font-size: 16px;
+      vertical-align: top;
+    }
+
+    /* ------------------------------------- BODY & CONTAINER ------------------------------------- */
+    .body {
+      width: 100%;
+    }
+
+    /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+    .container {
+      display: block;
+      margin: 50px auto !important;
+      /* makes it centered */
+      max-width: 600px;
+      width: 600px;
+    }
+
+    .bar {
+      height: 50px;
+      background-color: {{themeColor}};
+    }
+
+    /* This should also be a block element, so that it will fill 100% of the .container */
+    .content {
+      box-sizing: border-box;
+      display: block;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    /* ------------------------------------- HEADER, FOOTER, MAIN ------------------------------------- */
+    .main {
+      background: #fff;
+      border-radius: 3px;
+      width: 100%;
+    }
+
+    .wrapper {
+      box-sizing: border-box;
+    }
+
+    .content-block {
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+
+    .button {
+      background-color: #e41c23;
+      height: 40px;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      color: #fff;
+      font-size: 12px;
+      display: inline-block;
+      padding: 0 30px;
+      line-height: 40px;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    .status-message {
+      color: white;
+      font-size: 14px;
+      background-color: #757575;
+      vertical-align: middle;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* ------------------------------------- TYPOGRAPHY ------------------------------------- */
+    p,
+    ul,
+    ol {
+      font-family: sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    p li,
+    ul li,
+    ol li {
+      list-style-position: inside;
+      margin-left: 5px;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: underline;
+    }
+
+    hr {
+      border: 0;
+      border-bottom: 1px solid #e8e8e8;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <table border="0" cellpadding="0" cellspacing="0" class="body">
+    <tr>
+      <td>&nbsp;</td>
+      <td class="container" style="margin-top:50px;">
+        <div class="content">
+          <table class="main" cellspacing="0" cellpadding="0">
+            <!-- START MAIN CONTENT AREA -->
+            <tr>
+              <td class="bar" style="vertical-align: middle;">
+                <div style="margin-left:50px;"> <img src="{{logo}}" style="vertical-align: middle;"> <span
+                    style="font-size:22px;display:inline-block;margin-left:20px;line-height:40px;color:#fff"><b>Article</b></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="wrapper">
+                <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="45">
+                      <div style="height: 50px;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="width: 50px;"></div>
+                    </td>
+                    <td width="500">
+                      <div class="inner-content">
+                        <table cellpadding="0" cellspacing="0" border="0" class="main">
+                          <tr>
+                            <td colspan="2">
+                              <div>
+                                <p>Dear <span>{{recipientName}}</span>,</p> <br>
+                                <p>Your article status is : <span
+                                    style="display: inline-block;vertical-align: middle;">{{statusName}}</span></p>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" style="height: 20px;"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2"><a href="{{articleLink}}">Click here</a> to review your article</p>
+                            </td>
+                          <tr>
+                          <tr>
+                            <td style="height: 25px;"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <div>
+                                <p>Article Name : <span style="font-weight: bold;">{{articleName}}</span></p>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="height: 25px;"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <div>
+                                <p>Requestor : <span style="font-weight: bold;">{{requestor}}</span></p>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="height: 15px;"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <div>
+                                <p>Insertion Date : <span style="font-weight: bold;">{{insertDate}}</span></p>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="height: 15px;"></td>
+                          </tr>
+                          <tr>
+                            <td style="height: 5px;"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <hr />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><span style="font-weight: bold;">Agency Contact : </span></p>
+                              <p><span>{{agencyContact}}</span></p>
+                              <p><span>{{agencyContactEmail}}</span></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="height: 30px;"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p>Regards!</p>
+                              <p style="font-weight: bold;">{{signature}}</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="width: 50px;"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="45">
+                      <div style="height: 50px;">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td style="background-color:{{themeColor}};height: 2px"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr> <!-- END MAIN CONTENT AREA -->
+          </table> <!-- END CENTERED WHITE CONTAINER -->
+        </div>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <p style="font-size: 12px;width: 600px;margin: 0 auto"><i> This message contains information which may be confidential
+      and privileged. Unless you are the intended recipient (or authorized to receive this message for the intended
+      recipient), you may not use, copy, disseminate or disclose to anyone the message or any information contained in
+      the message. If you have received the message in error, please advise the sender by reply e-mail, and delete the
+      message. Thank you very much.</i> </p>
+</body>
+
+</html>
