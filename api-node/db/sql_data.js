@@ -7,14 +7,14 @@ module.exports = (schema) => {
 */
 return `
 /** TABLE: Role */
-INSERT INTO myapp.role (id,name) VALUES
+INSERT INTO myapp.role (recuid,name) VALUES
 (1,'ADMIN'),
 (2,'MANAGER'),
 (3,'USER');
 
-INSERT INTO myapp.user (id,username,password,email,created_at,updated_at) VALUES
-(1,'admin','admin','admin@admin.com',now(),now());
+INSERT INTO myapp.user (recuid,username,password,name,email,created_at,updated_at) VALUES
+(1,'admin','admin','Admin User','admin@admin.com',now(),now());
 
-INSERT INTO myapp.userroles (user_id,role_id) VALUES (1,1);
+INSERT INTO myapp.user_role (user_id,role_id) VALUES (1,1);
 `;
 };

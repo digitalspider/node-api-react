@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS ${schema}.user (
     mobile               varchar(18) null,
     last_visit           timestamp not null default CURRENT_DATE,
     total_visits         int not null default 0,
-    created_by           int not null,
+    created_by           int null,
     created_at           timestamp not null default CURRENT_DATE,
     updated_at           timestamp null,
-    deleted_at           timestamp null,
+    deleted_at           timestamp null
 );
 
 /** TABLE: Role */
